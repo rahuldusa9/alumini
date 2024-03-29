@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>www.GPTMCSEALUMNI.in</title>
+    <style>
+        
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+header img {
+    max-width: 100px;
+    border-radius: 50%;
+}
+
+.container {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#search-bar {
+    margin-bottom: 20px;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.profile {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.profile:hover {
+    transform: scale(1.02);
+}
+
+.profile img {
+    max-width: 100px;
+    height: auto;
+    border-radius: 50%;
+    margin-right: 20px;
+    float: left;
+    border: 4px solid #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profile a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.profile a:hover {
+    text-decoration: underline;
+}
+
+.details {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #555;
+}
+
+.batch-pin {
+    margin-top: 10px;
+    color: #777;
+}
+
+.achievements {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #555;
+}
+
+.thoughts {
+    margin-top: 10px;
+    font-style: italic;
+    color: #777;
+}
+
+.college-info {
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .profile img {
+        max-width: 80px;
+    }
+}
+
+.imgc{
+    display: inline;
+    height: 100px;
+    width: 100px;
+}
+.pimg{
+    display: block;
+    height: 100px;
+    width: 100px;
+}
+
+    </style>
+</head>
+<body>
+<header>
+    <div class="container">
+        <img src="https://is5-ssl.mzstatic.com/image/thumb/Purple126/v4/02/71/a2/0271a252-a8e4-e752-bec8-57b7e96c401d/source/512x512bb.jpg" alt="College Logo" align="left">
+        <h1>ALUMNI MENTORING PLATFORM</h1>
+        <div class="college-info">
+            <p><strong>GOVERNMENT POLYTECHNIC MASAB TANK, HYDERABAD, ASIF NAGAR 500028</strong></p>
+            <p>COMPUTER SCIENCE ENGINEERING DEPARTMENT</p>
+        </div>
+    </div>
+</header>
+<div class="container">
+    <input type="text" id="search-bar" placeholder="Search alumni by name..." oninput="searchProfiles()">
+    <div id="profiles">
+        <!-- Alumni profiles will be dynamically added here -->
+        <% alumni.forEach(function(alumni) { const profile="https://"+alumni.profile+"/" %>
+            <div class="profile">
+                <div class="imgc">
+                    <img src="<%= alumni.photo %>" class="pimg" alt="no photo available" style="height: 100px; width: 100px;">
+                </div>
+                <a href="<%=profile%>" target="_blank"><%= alumni.name %></a>
+                <div class="details">
+                    <div class="batch-pin">Batch: <%= alumni.batch %><br>Email: <%= alumni.email %></div>
+                    <div class="profession">Profession: <%= alumni.profession %></div>
+                    <div class="achievements">
+                        <strong>Achievements: </strong><%= alumni.achivements %>
+                    </div>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+</div>
+<script>
+    // Function to search alumni profiles
+    function searchProfiles() {
+        var input, filter, profiles, profile, i, txtValue;
+        input = document.getElementById("search-bar");
+        filter = input.value.toUpperCase();
+        profiles = document.getElementsByClassName("profile");
+        for (i = 0; i < profiles.length; i++) {
+            profile = profiles[i].getElementsByTagName("a")[0];
+            txtValue = profile.textContent || profile.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                profiles[i].style.display = "";
+            } else {
+                profiles[i].style.display = "none";
+            }
+        }
+    }
+</script>
+</body>
+</html>
